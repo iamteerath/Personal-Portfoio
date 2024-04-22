@@ -12,7 +12,7 @@
 <body>
     <!-- header site -->
     <header>
-        <div class="log"><span>T</span>eerath</div>
+        <div class="log"><span>T</span>eerath24</div>
         <ul class="navlist">
             <li><a href="#home" style="--i:1;">Home</a></li>
             <li><a href="#about" style="--i:2;">About</a></li>
@@ -40,7 +40,7 @@
                 </h3>
             </div>
 
-            <p>Currently I am pursuing my B.Tech From Guru Nanak Institute of Technology  </p>
+            <p>Currently I am pursuing my B.Tech From Guru Nanak Institute of Technology </p>
 
             <div class="info-box">
                 <div class="email-info">
@@ -48,14 +48,14 @@
                     <a href="tknic1482@gmail.com"><span>tknic1482@gmail.com</span></a>
                 </div>
             </div>
-            
+
             <p>You can directly contact me through Linkedin or Email </p>
 
             <div class="btn-box">
                 <a href="" class="btn">Download CV</a>
                 <a href="#contact" class="btn">Hire Me Now!</a>
             </div>
-            
+
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/teerath-kundu-1779781ab/"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://github.com/iamteerath"><i class='bx bxl-github'></i></a>
@@ -148,7 +148,9 @@
             <span>Let me introduce myself</span>
             <h2>About Me</h2>
             <h3>A story of a good Learner</h3>
-            <p> Seeking to be a part of a required organization involved in engineering the modern economy where I can make the best of my potential, thus enhancing my skills and knowledge and contributing to the growth of the same.</p>
+            <p> Seeking to be a part of a required organization involved in engineering the modern economy where I can
+                make the best of my potential, thus enhancing my skills and knowledge and contributing to the growth of
+                the same.</p>
 
             <!-- <div class="btn-box">
                 <a href="" class="btn">Read More!</a>
@@ -169,7 +171,7 @@
             <div class="overview-box">
                 <i class="bx bx-code-alt overview-icon"></i>
                 <h3>Python Programmer</h3>
-                <p>The projects like Attendance checker system 
+                <p>The projects like Attendance checker system
                 </p>
                 <div class="btn-box overview-btn">
                     <a href="https://github.com/iamteerath" class="btn">Read More</a>
@@ -179,7 +181,7 @@
             <div class="overview-box">
                 <i class="bx bx-desktop overview-icon"></i>
                 <h3>Front-End Wev Developer</h3>
-                <p>The Projects like Blog Site, Music Player web app, Swiggy clone using HTML, CSS, JS 
+                <p>The Projects like Blog Site, Music Player web app, Swiggy clone using HTML, CSS, JS
                 </p>
                 <div class="btn-box overview-btn">
                     <a href="https://github.com/iamteerath" class="btn">Read More</a>
@@ -243,7 +245,7 @@
             <div class="skill-image1 scroll-bottom">
                 <img src="Logos/premiere-pro.svg" alt="premiere-pro" class="src">
             </div>
-            
+
         </div>
         <div class="skill-gallery2 scroll-scale">
             <h3>DATABASES:</h3>
@@ -339,16 +341,17 @@
         <div class="main-text scroll-scale">
             <span>Get in touch</span>
             <h2>Contact me</h2>
-            <span>Have an inquiry, or want to connect? Feel free to leave a message below, or get in touch via LinkedIn, Twitter, or email.</span>
+            <span>Have an inquiry, or want to connect? Feel free to leave a message below, or get in touch via LinkedIn,
+                Twitter, or email.</span>
         </div>
 
         <form action="#" class="scroll-bottom">
-            <input type="text" placeholder="Your Name">
-            <input type="text" placeholder="Your Email">
-            <input type="number" placeholder="Phone Number">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Send Message"></textarea>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="text" id="email" placeholder="Your Email">
+            <input type="number" id="number" placeholder="Phone Number">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Send Message"></textarea>
             <div class="btn-box formBtn">
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn" onclick="Send()">Send Message</button>
             </div>
         </form>
     </section>
@@ -361,6 +364,34 @@
 
     <script src="mixitup.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        function Send() {
+            // console.log("Function call")
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var number = document.getElementById("number").value;
+            var messege = document.getElementById("messege").value;
+
+            var body = "Name: " + name + "<br/> Email: " + email + "<br/> Number: " + number + "<br/> messege: " + messege;
+            // console.log(body);
+
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "kunduteerathofficial5@gmail.com",
+                Password: "0A367554F4DD0DDBC6C09199445CB382D123",
+                To: 'tknic1482@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: messege,
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 </body>
 
 </html>
